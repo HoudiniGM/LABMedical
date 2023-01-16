@@ -1,0 +1,30 @@
+<div class="d-flex" id="div-pai">
+    <img class="col-5" src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-abstrato-de-cartao-inteligente-de-saude_335657-3843.jpg?w=740&t=st=1673811541~exp=1673812141~hmac=46efa93049bc390c79ee00e84534e99beeae5d14faa3ba49989bcc4658e191d1" alt="img">
+    <div class="vstack p-5 gap-3 bg-secondary bg-opacity-25">
+        <div class="d-flex gap-2 justify-content-end align-items-center">
+            <label for="criar-conta" >Não possui uma conta?</label>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-signup">Criar Conta</button>
+        </div>
+
+        
+        <form class="justify-content-center p-5 gap-3 card">
+            <h1>LOGIN</h1>
+
+            <div class="row">
+                <label for="form-email" class="form-label">E-mail</label>
+                <input type="email" id="form-email" class="form-control" required>
+            </div>
+
+            <div class="row">
+                <label for="form-senha" class="form-label">Senha</label>
+                <input type="password" id="form-senha" class="form-control" required>
+            </div>
+
+            <button class="btn btn-primary">Entrar</button>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-forgot-password">Esqueceu a senha?</a>
+        </form>
+
+        <app-modal-forgot-password></app-modal-forgot-password>
+        <app-modal-signup></app-modal-signup>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+#div-pai {
+    height: 100vh;
+    width: 100vw;
+}
+
+img {
+    display: none;
+}
+
+@media (orientation: landscape){
+    img {
+        display: block;
+    }
+}
