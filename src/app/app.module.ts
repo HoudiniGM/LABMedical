@@ -9,6 +9,7 @@ import { ModalForgotPasswordComponent } from './components/modal-forgot-password
 import { ApplicationScreenComponent } from './pages/application-screen/application-screen.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AsideMenuComponent } from './components/aside-menu/aside-menu.component
     ModalForgotPasswordComponent,
     ApplicationScreenComponent,
     ToolbarComponent,
-    AsideMenuComponent
+    AsideMenuComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

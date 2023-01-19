@@ -1,0 +1,16 @@
+li img {
+    background-color: #9db5da;
+}
+
+h2 {
+    border: 1px solid #c7c7c7;
+    border-left: 25px solid #000000;
+    border-right: 25px solid #000000;
+}
+
+ul li {
+    min-height: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    max-width: 300px;
+}
