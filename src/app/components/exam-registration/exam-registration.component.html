@@ -1,0 +1,47 @@
+<section class="d-flex flex-column p-3 text-center gap-5">
+    <h2>Encontre o paciente</h2>
+    <div class="d-flex gap-3">
+        <input type="text" class="form-control" placeholder="Digite o nome do paciente">
+        <button class="btn btn-outline-primary">🔍</button>
+    </div>
+    <form class="d-flex flex-wrap gap-3 justify-content-between">
+        <div class="d-flex justify-content-between col-12">
+            <h3>Exame de [Nome do Paciente]</h3>
+            <div>
+                <button class="btn btn-outline-primary">EDITAR</button>
+                <button class="btn btn-outline-secondary">DELETAR</button>
+                <button class="btn btn-outline-success">SALVAR</button>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label for="form-exame" class="form-label">Nome do Exame</label>
+            <input type="text" class="form-control" id="form-exame" required maxlength="64" minlength="8">
+        </div>
+        <div class="col-2">
+            <label for="form-data-exame" class="form-label">Data do Exame</label>
+            <input type="date" class="form-control" id="form-data-exame" required>
+        </div>
+        <div class="col-2">
+            <label for="form-hora-exame" class="form-label">Hora do Exame</label>
+            <input type="time" class="form-control" id="form-hora-exame" required>
+        </div>
+        <div class="col-5">
+            <label for="form-tipo-exame" class="form-label">Tipo do Exame</label>
+            <input type="text" class="form-control" id="form-tipo-exame" required maxlength="32" minlength="4">
+        </div>
+        <div class="col-5">
+            <label for="form-laboratorio" class="form-label">Laboratório</label>
+            <input type="text" class="form-control" id="form-laboratorio" required maxlength="32" minlength="4">
+        </div>
+        <div class="col-12">
+            <label for="form-url" class="form-label">URL do Documento do Exame</label>
+            <input type="url" class="form-control" id="form-precaucoes">
+        </div>
+        
+        <div class="col-12">
+            <label for="form-resultado" class="form-label">Resultado do Exame</label>
+            <textarea class="form-control" rows="8" required maxlength="1024" minlength="16"></textarea>
+        </div>
+    </form>
+</section>
