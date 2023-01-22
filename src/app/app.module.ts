@@ -11,6 +11,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { PacientRegistrationComponent } from './components/pacient-registration/pacient-registration.component';
+import { QueryRegistrationComponent } from './components/query-registration/query-registration.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PacientRegistrationComponent } from './components/pacient-registration/
     ToolbarComponent,
     AsideMenuComponent,
     StatisticsComponent,
-    PacientRegistrationComponent
+    PacientRegistrationComponent,
+    QueryRegistrationComponent
   ],
   imports: [
     BrowserModule,
