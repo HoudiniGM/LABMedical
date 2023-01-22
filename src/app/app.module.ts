@@ -10,6 +10,7 @@ import { ApplicationScreenComponent } from './pages/application-screen/applicati
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { PacientRegistrationComponent } from './components/pacient-registration/pacient-registration.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     ApplicationScreenComponent,
     ToolbarComponent,
     AsideMenuComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PacientRegistrationComponent
   ],
   imports: [
     BrowserModule,
