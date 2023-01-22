@@ -12,6 +12,7 @@ import { AsideMenuComponent } from './components/aside-menu/aside-menu.component
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { PacientRegistrationComponent } from './components/pacient-registration/pacient-registration.component';
 import { QueryRegistrationComponent } from './components/query-registration/query-registration.component';
+import { ExamRegistrationComponent } from './components/exam-registration/exam-registration.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { QueryRegistrationComponent } from './components/query-registration/quer
     AsideMenuComponent,
     StatisticsComponent,
     PacientRegistrationComponent,
-    QueryRegistrationComponent
+    QueryRegistrationComponent,
+    ExamRegistrationComponent
   ],
   imports: [
     BrowserModule,
