@@ -1,47 +1,53 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Encontre o paciente</h2>
     <div class="d-flex gap-3">
-        <input type="text" class="form-control" placeholder="Digite o nome do paciente">
-        <button class="btn btn-outline-primary">🔍</button>
+        <input #inputPaciente type="text" class="form-control" placeholder="Digite o nome do paciente">
+        <button class="btn btn-outline-primary" (click)="selecionarPaciente()">🔍</button>
     </div>
-    <form class="d-flex flex-wrap gap-3 justify-content-between">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between">
         <div class="d-flex justify-content-between col-12">
-            <h3>Exame de [Nome do Paciente]</h3>
             <div>
                 <button class="btn btn-outline-primary">EDITAR</button>
                 <button class="btn btn-outline-secondary">DELETAR</button>
-                <button class="btn btn-outline-success">SALVAR</button>
+                <button type="submit" class="btn btn-outline-success">SALVAR</button>
             </div>
+            <h3 *ngIf="encontrado">Exame de {{pacienteSelecionado['dados']['nome']}}</h3>
         </div>
 
         <div class="col-6">
             <label for="form-exame" class="form-label">Nome do Exame</label>
-            <input type="text" class="form-control" id="form-exame" required maxlength="64" minlength="8">
+            <input type="text" class="form-control" id="form-exame" formControlName="exame">
+            <p *ngIf="form.get('exame')?.invalid && form.get('exame')?.touched" class="alert-danger">Necessários 8 a 64 caracteres</p>
         </div>
         <div class="col-2">
             <label for="form-data-exame" class="form-label">Data do Exame</label>
-            <input type="date" class="form-control" id="form-data-exame" required>
+            <input type="date" class="form-control" id="form-data-exame" formControlName="dataExame">
+            <p *ngIf="form.get('dataExame')?.invalid && form.get('dataExame')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-2">
             <label for="form-hora-exame" class="form-label">Hora do Exame</label>
-            <input type="time" class="form-control" id="form-hora-exame" required>
+            <input type="time" class="form-control" id="form-hora-exame" formControlName="horaExame">
+            <p *ngIf="form.get('horaExame')?.invalid && form.get('horaExame')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-5">
             <label for="form-tipo-exame" class="form-label">Tipo do Exame</label>
-            <input type="text" class="form-control" id="form-tipo-exame" required maxlength="32" minlength="4">
+            <input type="text" class="form-control" id="form-tipo-exame" formControlName="tipoExame">
+            <p *ngIf="form.get('tipoExame')?.invalid && form.get('tipoExame')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
         </div>
         <div class="col-5">
             <label for="form-laboratorio" class="form-label">Laboratório</label>
-            <input type="text" class="form-control" id="form-laboratorio" required maxlength="32" minlength="4">
+            <input type="text" class="form-control" id="form-laboratorio" formControlName="laboratorio">
+            <p *ngIf="form.get('laboratorio')?.invalid && form.get('laboratorio')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
         </div>
         <div class="col-12">
             <label for="form-url" class="form-label">URL do Documento do Exame</label>
-            <input type="url" class="form-control" id="form-precaucoes">
+            <input type="url" class="form-control" id="form-precaucoes" formControlName="url">
         </div>
         
         <div class="col-12">
             <label for="form-resultado" class="form-label">Resultado do Exame</label>
-            <textarea class="form-control" rows="8" required maxlength="1024" minlength="16"></textarea>
+            <textarea class="form-control" rows="8" formControlName="resultado"></textarea>
+            <p *ngIf="form.get('resultado')?.invalid && form.get('resultado')?.touched" class="alert-danger">Necessários 16 a 1024 caracteres</p>
         </div>
     </form>
 </section>

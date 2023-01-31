@@ -1,68 +1,92 @@
-<section class="d-flex flex-column p-3 text-center">
+<section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Preencha os campos para cadastrar</h2>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <div class="d-flex flex-wrap gap-3 justify-content-between">
             <div class="d-flex justify-content-between col-12">
-                <h3>IDENTIFICAÇÃO</h3>
-
                 <div>
                     <button class="btn btn-outline-primary">EDITAR</button>
                     <button class="btn btn-outline-secondary">DELETAR</button>
-                    <button class="btn btn-outline-success">SALVAR</button>
+                    <button type="submit" class="btn btn-outline-success">SALVAR</button>
                 </div>
+                <h3>IDENTIFICAÇÃO</h3>
             </div>
 
             <div class="col-5">
                 <label for="form-full-name" class="form-label">Nome Completo</label>
-                <input type="text" class="form-control" id="form-full-name">
+                <input type="text" class="form-control" id="form-full-name" formControlName="nome">
+                <p *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="alert-danger">Necessários 8 a 64 caracteres</p>
             </div>
             <div class="col-3">
                 <label for="form-genero" class="form-label">Gênero</label>
-                <select class="form-control" id="form-genero">
-                    <option value="0">Selecione</option>
-                    <option value="m">Masculino</option>
-                    <option value="f">Feminino</option>
+                <select class="form-control" id="form-genero" formControlName="genero">
+                    <option selected value="">&blacktriangledown; Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
                     <option value="outro">Outro</option>
                 </select>
+                <p *ngIf="form.get('genero')?.invalid && form.get('genero')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div class="col-3">
                 <label for="form-nascimento" class="form-label">Nascimento</label>
-                <input type="date" class="form-control" id="form-nascimento">
+                <input type="date" class="form-control" id="form-nascimento" formControlName="nascimento">
+                <p *ngIf="form.get('nascimento')?.invalid && form.get('nascimento')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div  class="col-3">
                 <label for="form-cpf" class="form-label">CPF</label>
-                <input type="number" class="form-control" id="form-cpf">
+                <input type="number" class="form-control" maxlength="11" minlength="11" id="form-cpf" formControlName="cpf">
+                <p *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched" class="alert-danger">Necessário 11 dígitos</p>
             </div>
             <div class="col-3">
                 <label for="form-rg" class="form-label">RG</label>
-                <input type="number" class="form-control" id="form-rg">
+                <input type="number" class="form-control" id="form-rg" formControlName="rg">
+                <p *ngIf="form.get('rg')?.invalid && form.get('rg')?.touched" class="alert-danger">Campo obrigatório! Máximo 20 dígitos</p>
             </div>
             <div class="col-3">
                 <label for="form-estado-civil" class="form-label">Estado Civil</label>
-                <select id="form-estado-civil" class="form-control">
-                    <option selected>&blacktriangledown; Selecione</option>
+                <select id="form-estado-civil" class="form-control" formControlName="estadoCivil">
+                    <option selected value="">&blacktriangledown; Selecione</option>
                     <option value="solteiro">Solteiro</option>
                     <option value="casado">Casado</option>
                     <option value="divorciado">Divorciado</option>
                     <option value="viuvo">Viúvo</option>
                 </select>
+                <p *ngIf="form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div class="col-3">
                 <label for="form-telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="form-telefone">
+                <input type="tel" class="form-control" id="form-telefone" formControlName="telefone">
+                <p *ngIf="form.get('telefone')?.invalid && form.get('telefone')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div class="col-3">
                 <label for="form-email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="form-email">
+                <input type="email" class="form-control" id="form-email" formControlName="email">
+                <p *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div class="col-3">
                 <label for="form-naturalidade" class="form-label">Naturalidade</label>
-                <select id="form-naturalidade" class="form-control">
-                    <option selected>&blacktriangledown; Selecione</option>
+                <select id="form-naturalidade" class="form-control" formControlName="naturalidade">
+                    <option selected value="">&blacktriangledown; Selecione</option>
                     <option value="brasileiro nato">Brasileiro Nato</option>
                     <option value="brasileiro naturalizado">Brasileiro Naturalizado</option>
                     <option value="estrangeiro">Estrangeiro</option>
                 </select>
+                <p *ngIf="form.get('naturalidade')?.invalid && form.get('naturalidade')?.touched" class="alert-danger">Campo obrigatório!</p>
+            </div>
+
+            <div class="col-3">
+                <label for="form-emergencia" class="form-label">Contato de Emergência</label>
+                <input type="tel" class="form-control" id="form-emergencia" formControlName="numEmergencia">
+                <p *ngIf="form.get('numEmergencia')?.invalid && form.get('numEmergencia')?.touched" class="alert-danger">Campo obrigatório!</p>
+            </div>
+
+            <div class="col-12">
+                <label for="form-alergias" class="form-label">Lista de Alergias</label>
+                <textarea type="text" class="form-control" id="form-alergias" formControlName="alergias"></textarea>
+            </div>
+
+            <div class="col-12">
+                <label for="form-cuidados" class="form-label">Lista de Cuidados Específicos</label>
+                <textarea id="form-cuidados" class="form-control" formControlName="cuidados"></textarea>
             </div>
         </div>
 
@@ -73,17 +97,17 @@
 
             <div class="col-3">
                 <label for="form-convenio" class="form-label">Convênio</label>
-                <input type="text" class="form-control" id="form-convenio">
+                <input type="text" class="form-control" id="form-convenio" formControlName="convenio">
             </div>
 
             <div class="col-3">
                 <label for="form-num-carteira" class="form-label">Número da Carteira</label>
-                <input type="number" class="form-control" id="form-num-carteira">
+                <input type="number" class="form-control" id="form-num-carteira" formControlName="numCarteira">
             </div>
 
             <div class="col-3">
                 <label for="form-validade" class="form-label">Validade</label>
-                <input type="date" class="form-control" id="form-validade">
+                <input type="date" class="form-control" id="form-validade" formControlName="validade">
             </div>
         </div>
 
@@ -94,44 +118,50 @@
 
             <div class="col-3">
                 <label for="form-cep" class="form-label">CEP</label>
-                <input type="number" class="form-control" id="form-cep">
+                <input type="number" class="form-control" id="form-cep" formControlName="cep">
+                <p *ngIf="form.get('cep')?.invalid && form.get('cep')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-cidade" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="form-cidade">
+                <input type="text" class="form-control" id="form-cidade" formControlName="cidade">
+                <p *ngIf="form.get('cidade')?.invalid && form.get('cidade')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-estado" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="form-estado">
+                <input type="text" class="form-control" id="form-estado" formControlName="estado">
+                <p *ngIf="form.get('estado')?.invalid && form.get('estado')?.touched" class="alert-danger">Campo obrigatório. Apenas 2 caracteres</p>
             </div>
 
             <div class="col-6">
                 <label for="form-logradouro" class="form-label">Logradouro</label>
-                <input type="text" class="form-control" id="form-logradouro">
+                <input type="text" class="form-control" id="form-logradouro" formControlName="logradouro">
+                <p *ngIf="form.get('logradouro')?.invalid && form.get('logradouro')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-numero" class="form-label">Número</label>
-                <input type="number" class="form-control" id="form-numero">
+                <input type="number" class="form-control" id="form-numero" formControlName="numero">
+                <p *ngIf="form.get('numero')?.invalid && form.get('numero')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-complemento" class="form-label">Complemento</label>
-                <input type="text" class="form-control" id="form-complemento">
+                <input type="text" class="form-control" id="form-complemento" formControlName="complemento">
             </div>
 
             <div class="col-3">
                 <label for="form-bairro" class="form-label">Bairro</label>
-                <input type="text" class="form-control" id="form-bairro">
+                <input type="text" class="form-control" id="form-bairro" formControlName="bairro">
+                <p *ngIf="form.get('bairro')?.invalid && form.get('bairro')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-referencia" class="form-label">Ponto de Referência</label>
-                <input type="text" class="form-control" id="form-referencia">
+                <input type="text" class="form-control" id="form-referencia" formControlName="referencia">
+                <p *ngIf="form.get('referencia')?.invalid && form.get('referencia')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
         </div>
     </form>
-
 </section>
