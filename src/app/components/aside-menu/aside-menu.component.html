@@ -9,14 +9,14 @@
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
+            <a routerLink="statistics" class="btn btn-primary space" (click)="salvarTitulo('ESTATÍSTICAS')">
                 <img src="assets/graphic.svg" alt="main" height="24">
                 INÍCIO
             </a>
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
+            <a (click)="deslogar()" class="btn btn-primary space">
                 <img src="assets/logout.svg" alt="logout" height="24">
                 SAIR
             </a>
@@ -30,14 +30,14 @@
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
+            <a routerLink="pacient-registration" class="btn btn-primary space" (click)="salvarTitulo('REGISTRO DE PACIENTE')">
                 <img src="assets/person-add.svg" alt="register-patient" height="24">
-                CADASTRAR
+                CADASTRAR PACIENTE
             </a>
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
+            <a href="#" class="btn btn-primary space" (click)="salvarTitulo('PRONTUÁRIO')">
                 <img src="assets/prontuario.svg" alt="prontuário" height="24">
                 LISTAR PRONTUÁRIO
             </a>
@@ -51,15 +51,15 @@
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
-                <img src="assets/add.svg" alt="register-query" height="24">
+            <a routerLink="query-registration" class="btn btn-primary space" (click)="salvarTitulo('REGISTRO DE CONSULTA')">
+                <img src="assets/add.svg" alt="query-registration" height="24">
                 CADASTRAR CONSULTA
             </a>
         </li>
 
         <li>
-            <a href="#" class="btn btn-primary space">
-                <img src="assets/add.svg" alt="register-exam" height="24">
+            <a routerLink="exam-registration" class="btn btn-primary space" (click)="salvarTitulo('REGISTRO DE EXAME')">
+                <img src="assets/add.svg" alt="exam-registration" height="24">
                 CADASTRAR EXAME
             </a>
         </li>

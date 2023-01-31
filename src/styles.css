@@ -13,3 +13,8 @@ h2 {
     border-right: 25px solid #000000;
     padding: 5px 0;
 }
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+}

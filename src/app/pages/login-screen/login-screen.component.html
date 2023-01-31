@@ -7,21 +7,21 @@
         </div>
 
         
-        <form class="justify-content-center p-5 gap-3 card">
+        <form [formGroup]="form" (ngSubmit)="login(form)" class="justify-content-center p-5 gap-3 card">
             <h1>LOGIN</h1>
 
             <div class="row">
                 <label for="form-email" class="form-label">E-mail</label>
-                <input type="email" id="form-email" class="form-control" required>
+                <input formControlName="email" type="email" id="form-email" class="form-control">
             </div>
 
             <div class="row">
                 <label for="form-senha" class="form-label">Senha</label>
-                <input type="password" id="form-senha" class="form-control" required>
+                <input formControlName="senha" type="password" id="form-senha" class="form-control">
             </div>
 
-            <button class="btn btn-primary">Entrar</button>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-forgot-password">Esqueceu a senha?</a>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <p>Esqueceu a senha? <a data-bs-toggle="modal" data-bs-target="#modal-forgot-password" class="link" role="button">Clique aqui</a></p>
         </form>
 
         <app-modal-forgot-password></app-modal-forgot-password>

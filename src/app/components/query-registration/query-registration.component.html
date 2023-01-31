@@ -1,42 +1,47 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Encontre o paciente</h2>
     <div class="d-flex gap-3">
-        <input type="text" class="form-control" placeholder="Digite o nome do paciente">
-        <button class="btn btn-outline-primary">🔍</button>
+        <input type="text" class="form-control" placeholder="Digite a ID ou o nome do paciente" #inputPaciente>
+        <button type="button" class="btn btn-outline-primary" (click)="selecionarPaciente()">🔍</button>
     </div>
-    <form class="d-flex flex-wrap gap-3 justify-content-between">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between">
         <div class="d-flex justify-content-between col-12">
-            <h3>Consulta de [Nome do Paciente]</h3>
             <div>
                 <button class="btn btn-outline-primary">EDITAR</button>
                 <button class="btn btn-outline-secondary">DELETAR</button>
-                <button class="btn btn-outline-success">SALVAR</button>
+                <button type="submit" class="btn btn-outline-success">SALVAR</button>
             </div>
+            <h3 *ngIf="encontrado">Consulta de {{pacienteSelecionado['dados']['nome']}}</h3>
         </div>
 
         <div class="col-6">
             <label for="form-motivo" class="form-label">Motivo da Consulta</label>
-            <input type="text" class="form-control" id="form-motivo" required maxlength="64" minlength="8">
+            <input type="text" class="form-control" id="form-motivo" formControlName="motivo">
+            <p *ngIf="form.get('motivo')?.invalid && form.get('motivo')?.touched" class="alert-danger">Necessários 8 a 64 caracteres</p>
         </div>
         <div class="col-2">
             <label for="form-data-consulta" class="form-label">Data da Consulta</label>
-            <input type="date" class="form-control" id="form-data-consulta" required>
+            <input type="date" class="form-control" id="form-data-consulta" formControlName="dataConsulta">
+            <p *ngIf="form.get('dataConsulta')?.invalid && form.get('dataConsulta')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-2">
             <label for="form-hora-consulta" class="form-label">Hora da Consulta</label>
-            <input type="time" class="form-control" id="form-hora-consulta" required>
+            <input type="time" class="form-control" id="form-hora-consulta" formControlName="horaConsulta">
+            <p *ngIf="form.get('horaConsulta')?.invalid && form.get('horaConsulta')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-12">
             <label for="form-descricao" class="form-label">Descrição do Problema</label>
-            <textarea type="text" class="form-control" id="form-descricao" rows="3" required maxlength="1024" minlength="16"></textarea>
+            <textarea type="text" class="form-control" id="form-descricao" formControlName="descricao"></textarea>
+            <p *ngIf="form.get('descricao')?.invalid && form.get('descricao')?.touched" class="alert-danger">Necessários 16 a 1024 caracteres</p>
         </div>
         <div class="col-12">
             <label for="form-receita" class="form-label">Medicação Receitada</label>
-            <textarea type="text" class="form-control" id="form-receita" rows="3"></textarea>
+            <textarea type="text" class="form-control" id="form-receita" formControlName="receita"></textarea>
         </div>
         <div class="col-12">
             <label for="form-precaucoes" class="form-label">Dosagem e Precauções</label>
-            <textarea type="text" class="form-control" id="form-precaucoes" rows="3" required maxlength="256" minlength="16"></textarea>
+            <textarea type="text" class="form-control" id="form-precaucoes" formControlName="precaucoes"></textarea>
+            <p *ngIf="form.get('precaucoes')?.invalid && form.get('precaucoes')?.touched" class="alert-danger">Necessários 16 a 256 caracteres</p>
         </div>
     </form>
 </section>
