@@ -1,15 +1,15 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Encontre o paciente</h2>
     <div class="d-flex gap-3">
-        <input #inputPaciente type="text" class="form-control" placeholder="Digite o nome do paciente">
+        <input #inputPaciente type="text" class="form-control" placeholder="Digite a ID ou o nome do paciente">
         <button class="btn btn-outline-primary" (click)="selecionarPaciente()">🔍</button>
     </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between">
         <div class="d-flex justify-content-between col-12">
-            <div>
-                <button class="btn btn-outline-primary">EDITAR</button>
-                <button class="btn btn-outline-secondary">DELETAR</button>
-                <button type="submit" class="btn btn-outline-success">SALVAR</button>
+            <div class="btn-group gap-2">
+                <button class="btn btn-primary">EDITAR</button>
+                <button class="btn btn-secondary">DELETAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
             <h3 *ngIf="encontrado">Exame de {{pacienteSelecionado['dados']['nome']}}</h3>
         </div>

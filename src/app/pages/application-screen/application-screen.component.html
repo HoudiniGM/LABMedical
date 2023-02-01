@@ -1,7 +1,8 @@
+<button class="btn btn-primary btn-hide" (click)="hide = !hide">&#8801;</button>
 <div class="d-flex" id="container" style="height: 100vh;">
-    <app-aside-menu class="col-3"></app-aside-menu>
+    <app-aside-menu class="col-3" *ngIf="!hide"></app-aside-menu>
 
-    <div class="overflow-auto col-9" id="right-side">
+    <div class="overflow-auto flex-grow-1" id="right-side">
         <app-toolbar class="w-100"></app-toolbar>
         <router-outlet></router-outlet>
     </div>

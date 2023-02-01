@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./application-screen.component.css']
 })
 export class ApplicationScreenComponent {
-
+  hide: boolean = false;
 }

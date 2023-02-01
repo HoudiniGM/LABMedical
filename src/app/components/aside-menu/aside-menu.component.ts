@@ -10,6 +10,7 @@ import { TituloService } from 'src/app/services/titulo.service';
   styleUrls: ['./aside-menu.component.css']
 })
 export class AsideMenuComponent {
+  hide: boolean = false;
 
   constructor(private localStorage: LocalstorageService, private router: Router, public data: TituloService){}
 
