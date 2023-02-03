@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-query-registration',
@@ -12,9 +13,12 @@ export class QueryRegistrationComponent {
   pacienteSelecionado: {[key:string]: any} = this.localStorage.get('paciente');
   encontrado: boolean = false;
   form: FormGroup;
+  today: Date = new Date();
+  data: string | null;
+  hora: string | null;
 
 
-  constructor(private localStorage: LocalstorageService){
+  constructor(private localStorage: LocalstorageService, private date: DatePipe){
     this.form = new FormGroup({
       motivo: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
       dataConsulta: new FormControl('', Validators.required),
@@ -23,6 +27,10 @@ export class QueryRegistrationComponent {
       receita: new FormControl(''),
       precaucoes: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(256)])
     })
+
+    this.data = this.date.transform(this.today, 'yyyy-MM-dd');
+    this.hora = this.date.transform(this.today, 'HH:mm');
+    
   }
 
   selecionarPaciente(){

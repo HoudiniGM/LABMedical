@@ -21,12 +21,12 @@
         </div>
         <div class="col-2">
             <label for="form-data-exame" class="form-label">Data do Exame</label>
-            <input type="date" class="form-control" id="form-data-exame" formControlName="dataExame">
+            <input type="date" class="form-control" id="form-data-exame" formControlName="dataExame" [(ngModel)]="data">
             <p *ngIf="form.get('dataExame')?.invalid && form.get('dataExame')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-2">
             <label for="form-hora-exame" class="form-label">Hora do Exame</label>
-            <input type="time" class="form-control" id="form-hora-exame" formControlName="horaExame">
+            <input type="time" class="form-control" id="form-hora-exame" formControlName="horaExame" [(ngModel)]="hora">
             <p *ngIf="form.get('horaExame')?.invalid && form.get('horaExame')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-5">

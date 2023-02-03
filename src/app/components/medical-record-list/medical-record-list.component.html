@@ -1,0 +1,24 @@
+<section class="d-flex flex-column p-3 text-center gap-5">
+    <h2>Encontre o paciente</h2>
+    <div class="d-flex gap-3">
+        <input type="text" class="form-control" placeholder="Digite a ID ou o nome do paciente" [(ngModel)]="search">
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead">
+            <tr class="tr">
+                <td class="h4">ID</td>
+                <td class="h4">Nome do Paciente</td>
+                <td class="h4">Convênio</td>
+            </tr>
+        </thead>
+
+        <tbody class="tbody">
+            <tr class="tr" *ngFor="let cliente of clientes | filterForMedicalRecord:search">
+                <td class="td">{{cliente['dados']['id']}}</td>
+                <td class="td">{{cliente['dados']['nome']}}</td>
+                <td class="td">{{cliente['dados']['convenio'] !== '' ? cliente['dados']['convenio'] : 'Sem convênio'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

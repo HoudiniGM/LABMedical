@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { DatePipe } from '@angular/common';
+
 import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './pages/login-screen/login-screen.component';
 import { ModalSignupComponent } from './components/modal-signup/modal-signup.component';
@@ -17,7 +18,9 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { PacientRegistrationComponent } from './components/pacient-registration/pacient-registration.component';
 import { QueryRegistrationComponent } from './components/query-registration/query-registration.component';
 import { ExamRegistrationComponent } from './components/exam-registration/exam-registration.component';
-import { HttpClientModule } from '@angular/common/http';
+import { MedicalRecordListComponent } from './components/medical-record-list/medical-record-list.component';
+import { FilterForStatisticsPipe } from './pipes/filter-for-statistics.pipe';
+import { FilterForMedicalRecordPipe } from './pipes/filter-for-medical-record.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     StatisticsComponent,
     PacientRegistrationComponent,
     QueryRegistrationComponent,
-    ExamRegistrationComponent
+    ExamRegistrationComponent,
+    MedicalRecordListComponent,
+    FilterForStatisticsPipe,
+    FilterForMedicalRecordPipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

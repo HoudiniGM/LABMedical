@@ -24,7 +24,7 @@ export class PacientRegistrationComponent {
       numEmergencia: new FormControl('', Validators.required),
       alergias: new FormControl(''),
       cuidados: new FormControl(''),
-      convenio: new FormControl(''),
+      convenio: new FormControl('Sem Convênio'),
       numCarteira: new FormControl(''),
       validade: new FormControl(''),
       cep: new FormControl('', Validators.required),
@@ -44,7 +44,7 @@ export class PacientRegistrationComponent {
     form.markAllAsTouched();
 
     if (form.valid){
-      form.value.id = Math.floor(Date.now() * Math.random()).toString(36); // gera um id aleatório
+      form.value.id = Math.floor(Date.now() * Math.random()).toString().substring(0, 8); // gera um id aleatório
 
       const email = this.localStorage.get('usuario').email; //pega o email de login
       let usuario = this.localStorage.get(email); // e procura pelo usuario por meio do email

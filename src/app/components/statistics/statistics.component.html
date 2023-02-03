@@ -1,11 +1,11 @@
 <section class="d-flex flex-column p-3 text-center">
     <div class="d-flex flex-column gap-3">
-        <h2 class="bg-light">ESTATÍSTICAS DO SISTEMA</h2>
+        <h2>Estatísticas do Sistema</h2>
         <div class="d-flex justify-content-around">
             <div class="border p-3 col-3">
                 <div class="d-flex align-items-center gap-3">
                     <img src="assets/people.svg" alt="pacientes" height="70">
-                    <p class="m-auto display-3 h3 fw-bolder">22</p>
+                    <p class="m-auto display-3 h3 fw-bolder">{{clientes.length}}</p>
                 </div>
         
                 <p class="text-center">PACIENTES</p>
@@ -13,7 +13,7 @@
             <div class="border p-3 col-3">
                 <div class="d-flex align-items-center gap-3">
                     <img src="assets/calendar.svg" alt="consultas" height="70">
-                    <p class="m-auto display-3 h3 fw-bolder">35</p>
+                    <p class="m-auto display-3 h3 fw-bolder">{{consultas}}</p>
                 </div>
         
                 <p class="text-center">CONSULTAS</p>
@@ -21,7 +21,7 @@
             <div class="border p-3 col-3">
                 <div class="d-flex align-items-center gap-3">
                     <img src="assets/exams.svg" alt="exames" height="70">
-                    <p class="m-auto display-3 h3 fw-bolder">18</p>
+                    <p class="m-auto display-3 h3 fw-bolder">{{exames}}</p>
                 </div>
         
                 <p class="text-center">EXAMES</p>
@@ -32,65 +32,24 @@
     <hr class="mt-4 mb-4">
     
     <div class="d-flex flex-column gap-3">
-        <h2>INFORMAÇÕES RÁPIDAS DE PACIENTES</h2>
+        <h2>Informações Rápidas de Pacientes</h2>
         <div class="d-flex gap-3">
-            <input type="text" class="form-control">
-            <button class="btn btn-outline-primary">BUSCAR</button>
+            <input type="text" class="form-control" [(ngModel)]="search">
         </div>
         
         <ul class="d-flex flex-wrap gap-3 justify-content-center">
-            <li class="card">
+            <li class="card" *ngFor="let cliente of clientes | filterForStatistics:search">
                 <img src="assets/profile-icon-default.svg" alt="profile-photo" height="70">
                 <div class="card-body">
-                    <h4>João Vitor Anacleto</h4>
-                    <small>22 anos</small>
-                    <a href="#">(31) 9 9754-3903</a>
-                    <h6>SEM PLANO</h6>
+                    <h4>{{cliente['dados']['nome']}}</h4>
+                    <small>{{cliente['dados']['idade']}}</small>
+                    <a href="#">{{cliente['dados']['email']}}</a>
+                    <h6>{{cliente['dados']['convenio']}}</h6>
                 </div>
                 <div class="card-footer">
                     <small>Ver mais &#10010;</small>
                 </div>
             </li>
-
-            <li class="card">
-                <img src="assets/profile-icon-default.svg" alt="profile-photo" height="70">
-                <div class="card-body">
-                    <h4>João Vitor Anacleto</h4>
-                    <small>22 anos</small>
-                    <a href="#">(31) 9 9754-3903</a>
-                    <h6>SEM PLANO</h6>
-                </div>
-                <div class="card-footer">
-                    <small>Ver mais &#10010;</small>
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="assets/profile-icon-default.svg" alt="profile-photo" height="70">
-                <div class="card-body">
-                    <h4>João Vitor Anacleto</h4>
-                    <small>22 anos</small>
-                    <a href="#">(31) 9 9754-3903</a>
-                    <h6>SEM PLANO</h6>
-                </div>
-                <div class="card-footer">
-                    <small>Ver mais &#10010;</small>
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="assets/profile-icon-default.svg" alt="profile-photo" height="70">
-                <div class="card-body">
-                    <h4>João Vitor Anacleto</h4>
-                    <small>22 anos</small>
-                    <a href="#">(31) 9 9754-3903</a>
-                    <h6>SEM PLANO</h6>
-                </div>
-                <div class="card-footer">
-                    <small>Ver mais &#10010;</small>
-                </div>
-            </li>
-
             
         </ul>
     </div>

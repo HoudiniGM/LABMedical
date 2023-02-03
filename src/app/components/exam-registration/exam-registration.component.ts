@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-exam-registration',
@@ -12,9 +13,12 @@ export class ExamRegistrationComponent {
   pacienteSelecionado: {[key:string]: any} = this.localStorage.get('paciente');
   encontrado: boolean = false;
   form: FormGroup;
+  today: Date = new Date();
+  data: string | null;
+  hora: string | null;
 
 
-  constructor(private localStorage: LocalstorageService){
+  constructor(private localStorage: LocalstorageService, private date: DatePipe){
     this.form = new FormGroup({
       exame: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
       dataExame: new FormControl('', Validators.required),
@@ -24,6 +28,9 @@ export class ExamRegistrationComponent {
       url: new FormControl(''),
       resultado: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(1024)]),
     })
+
+    this.data = this.date.transform(this.today, 'yyyy-MM-dd');
+    this.hora = this.date.transform(this.today, 'HH:mm');
   }
 
   selecionarPaciente(){
