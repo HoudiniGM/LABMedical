@@ -15,8 +15,10 @@ export class AsideMenuComponent {
   constructor(private localStorage: LocalstorageService, private router: Router, public data: TituloService){}
 
   deslogar(){
-    this.router.navigateByUrl('');
-    this.localStorage.set('usuario', '');
+    if (confirm('Tem certeza que deseja sair?')){
+      this.router.navigateByUrl('');
+      this.localStorage.set('usuario', '');
+    }
   }
 
   salvarTitulo(rota: string){

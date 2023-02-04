@@ -1,7 +1,7 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Preencha os campos para cadastrar</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-        <div class="d-flex flex-wrap gap-3 justify-content-between">
+        <div class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
             <div class="d-flex justify-content-between col-12">
                 <div class="btn-group gap-2">
                     <button class="btn btn-primary">EDITAR</button>
@@ -18,28 +18,28 @@
             </div>
             <div class="col-3">
                 <label for="form-genero" class="form-label">Gênero</label>
-                <select class="form-control" id="form-genero" formControlName="genero">
+                <select class="form-control" id="form-genero" formControlName="gênero">
                     <option selected value="">&blacktriangledown; Selecione</option>
                     <option value="masculino">Masculino</option>
                     <option value="feminino">Feminino</option>
                     <option value="outro">Outro</option>
                 </select>
-                <p *ngIf="form.get('genero')?.invalid && form.get('genero')?.touched" class="alert-danger">Campo obrigatório!</p>
+                <p *ngIf="form.get('gênero')?.invalid && form.get('gênero')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div class="col-3">
                 <label for="form-nascimento" class="form-label">Nascimento</label>
-                <input type="date" class="form-control" id="form-nascimento" formControlName="nascimento">
+                <input type="date" class="form-control" id="form-nascimento" formControlName="nascimento" max="{{today | date:'yyyy-MM-dd'}}">
                 <p *ngIf="form.get('nascimento')?.invalid && form.get('nascimento')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
             <div  class="col-3">
                 <label for="form-cpf" class="form-label">CPF</label>
-                <input type="number" class="form-control" maxlength="11" minlength="11" id="form-cpf" formControlName="cpf">
-                <p *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched" class="alert-danger">Necessário 11 dígitos</p>
+                <input type="number" class="form-control" maxlength="11" minlength="11" id="form-cpf" formControlName="CPF">
+                <p *ngIf="form.get('CPF')?.invalid && form.get('CPF')?.touched" class="alert-danger">Necessário 11 dígitos</p>
             </div>
             <div class="col-3">
                 <label for="form-rg" class="form-label">RG</label>
-                <input type="number" class="form-control" id="form-rg" formControlName="rg">
-                <p *ngIf="form.get('rg')?.invalid && form.get('rg')?.touched" class="alert-danger">Campo obrigatório! Máximo 20 dígitos</p>
+                <input type="number" class="form-control" id="form-rg" formControlName="RG">
+                <p *ngIf="form.get('RG')?.invalid && form.get('RG')?.touched" class="alert-danger">Campo obrigatório! Máximo 20 dígitos</p>
             </div>
             <div class="col-3">
                 <label for="form-estado-civil" class="form-label">Estado Civil</label>
@@ -75,8 +75,8 @@
 
             <div class="col-3">
                 <label for="form-emergencia" class="form-label">Contato de Emergência</label>
-                <input type="tel" class="form-control" id="form-emergencia" formControlName="numEmergencia">
-                <p *ngIf="form.get('numEmergencia')?.invalid && form.get('numEmergencia')?.touched" class="alert-danger">Campo obrigatório!</p>
+                <input type="tel" class="form-control" id="form-emergencia" formControlName="emergência">
+                <p *ngIf="form.get('emergência')?.invalid && form.get('emergência')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-12">
@@ -92,17 +92,17 @@
 
         <hr>
 
-        <div class="d-flex flex-wrap gap-3 justify-content-between">
+        <div class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
             <h3 class="col-12">CONVÊNIO</h3>
 
             <div class="col-3">
                 <label for="form-convenio" class="form-label">Convênio</label>
-                <input type="text" class="form-control" id="form-convenio" formControlName="convenio">
+                <input type="text" class="form-control" id="form-convenio" formControlName="convênio">
             </div>
 
             <div class="col-3">
                 <label for="form-num-carteira" class="form-label">Número da Carteira</label>
-                <input type="number" class="form-control" id="form-num-carteira" formControlName="numCarteira">
+                <input type="number" class="form-control" id="form-num-carteira" formControlName="carteira">
             </div>
 
             <div class="col-3">
@@ -113,13 +113,13 @@
 
         <hr>
 
-        <div class="d-flex flex-wrap gap-3 justify-content-between">
+        <div class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
             <h3 class="col-12">DADOS DE ENDEREÇO</h3>
 
             <div class="col-3">
                 <label for="form-cep" class="form-label">CEP</label>
-                <input type="number" class="form-control" id="form-cep" formControlName="cep">
-                <p *ngIf="form.get('cep')?.invalid && form.get('cep')?.touched" class="alert-danger">Campo obrigatório!</p>
+                <input type="number" class="form-control" id="form-cep" formControlName="CEP">
+                <p *ngIf="form.get('CEP')?.invalid && form.get('CEP')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
@@ -142,8 +142,8 @@
 
             <div class="col-3">
                 <label for="form-numero" class="form-label">Número</label>
-                <input type="number" class="form-control" id="form-numero" formControlName="numero">
-                <p *ngIf="form.get('numero')?.invalid && form.get('numero')?.touched" class="alert-danger">Campo obrigatório!</p>
+                <input type="number" class="form-control" id="form-numero" formControlName="número">
+                <p *ngIf="form.get('número')?.invalid && form.get('número')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
@@ -159,8 +159,8 @@
 
             <div class="col-3">
                 <label for="form-referencia" class="form-label">Ponto de Referência</label>
-                <input type="text" class="form-control" id="form-referencia" formControlName="referencia">
-                <p *ngIf="form.get('referencia')?.invalid && form.get('referencia')?.touched" class="alert-danger">Campo obrigatório!</p>
+                <input type="text" class="form-control" id="form-referencia" formControlName="referência">
+                <p *ngIf="form.get('referência')?.invalid && form.get('referência')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
         </div>
     </form>

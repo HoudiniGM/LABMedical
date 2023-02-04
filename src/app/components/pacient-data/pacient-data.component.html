@@ -1,0 +1,33 @@
+<div class="modal" id="modal-dados">
+    <div class="modal-dialog modal-content">
+        <div class="modal-header">
+            <button class="btn btn-success" (click)="abrir('dados')">DADOS</button>
+            <button class="btn btn-success" (click)="abrir('consultas')">CONSULTAS</button>
+            <button class="btn btn-success" (click)="abrir('exames')">EXAMES</button>
+        </div>
+
+        <div class="modal-body" *ngIf="validar.dados">
+            <div class="card p-2">
+                <h3 class="text-center">{{paciente.dados.nome}}</h3>
+                <p *ngFor="let dado of paciente.dados | keyvalue"><b class="text-capitalize">{{dado.key}}</b>: {{dado.value == '' ? '-' : dado.value}}</p>
+            </div>
+        </div>
+
+        <div class="modal-body" *ngIf="validar.consultas">
+            <div *ngFor="let consulta of paciente.consultas; index as i" class="card p-2">
+                <h3>{{i+1}}ª Consulta</h3>
+                <p *ngFor="let dado of consulta | keyvalue"><b class="text-capitalize">{{dado.key}}</b>: {{dado.value == '' ? '-' : dado.value}}</p>
+            </div>
+            <p class="text-danger bg-danger bg-opacity-25" *ngIf="paciente.consultas == undefined">Não há registro de consultas</p>
+        </div>
+
+        <div class="modal-body" *ngIf="validar.exames">
+            <div *ngFor="let exame of paciente.exames; index as i" class="card p-2">
+                <h3>{{i+1}}ª Exame</h3>
+                <p *ngFor="let dado of exame | keyvalue"><b class="text-capitalize">{{dado.key}}</b>: {{dado.value == '' ? '-' : dado.value}}</p>
+            </div>
+            <p class="text-danger bg-danger bg-opacity-25" *ngIf="paciente.exames == undefined">Não há registro de exames</p>
+        </div>
+        
+    </div>
+</div>

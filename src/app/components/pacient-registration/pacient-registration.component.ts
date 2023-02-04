@@ -9,32 +9,33 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 })
 export class PacientRegistrationComponent {
   form: FormGroup;
+  today: Date = new Date();
 
   constructor(private localStorage: LocalstorageService){
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
-      genero: new FormControl('', Validators.required),
+      gênero: new FormControl('', Validators.required),
       nascimento: new FormControl('', Validators.required),
-      cpf: new FormControl('', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]),
-      rg: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      CPF: new FormControl('', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]),
+      RG: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       estadoCivil: new FormControl('', Validators.required),
       telefone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       naturalidade: new FormControl('', [Validators.required, Validators.maxLength(64), Validators.minLength(8)]),
-      numEmergencia: new FormControl('', Validators.required),
+      emergência: new FormControl('', Validators.required),
       alergias: new FormControl(''),
       cuidados: new FormControl(''),
-      convenio: new FormControl('Sem Convênio'),
-      numCarteira: new FormControl(''),
+      convênio: new FormControl(''),
+      carteira: new FormControl(''),
       validade: new FormControl(''),
-      cep: new FormControl('', Validators.required),
+      CEP: new FormControl('', Validators.required),
       cidade: new FormControl('', Validators.required),
       estado: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.minLength(2)]),
       logradouro: new FormControl('', Validators.required),
-      numero: new FormControl('', Validators.required),
+      número: new FormControl('', Validators.required),
       complemento: new FormControl(''),
       bairro: new FormControl('', Validators.required),
-      referencia: new FormControl('', Validators.required)
+      referência: new FormControl('', Validators.required)
     })
   }
 

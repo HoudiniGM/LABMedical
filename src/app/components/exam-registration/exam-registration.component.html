@@ -1,14 +1,14 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Encontre o paciente</h2>
-    <div class="d-flex gap-3">
+    <div class="d-flex gap-3 shadow p-2">
         <input #inputPaciente type="text" class="form-control" placeholder="Digite a ID ou o nome do paciente">
         <button class="btn btn-outline-primary" (click)="selecionarPaciente()">🔍</button>
     </div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
         <div class="d-flex justify-content-between col-12">
             <div class="btn-group gap-2">
-                <button class="btn btn-primary">EDITAR</button>
-                <button class="btn btn-secondary">DELETAR</button>
+                <button class="btn btn-primary" disabled>EDITAR</button>
+                <button class="btn btn-secondary" disabled>DELETAR</button>
                 <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
             <h3 *ngIf="encontrado">Exame de {{pacienteSelecionado['dados']['nome']}}</h3>
@@ -21,27 +21,27 @@
         </div>
         <div class="col-2">
             <label for="form-data-exame" class="form-label">Data do Exame</label>
-            <input type="date" class="form-control" id="form-data-exame" formControlName="dataExame" [(ngModel)]="data">
-            <p *ngIf="form.get('dataExame')?.invalid && form.get('dataExame')?.touched" class="alert-danger">Campo obrigatório</p>
+            <input type="date" class="form-control" id="form-data-exame" formControlName="data" [(ngModel)]="data">
+            <p *ngIf="form.get('data')?.invalid && form.get('data')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-2">
             <label for="form-hora-exame" class="form-label">Hora do Exame</label>
-            <input type="time" class="form-control" id="form-hora-exame" formControlName="horaExame" [(ngModel)]="hora">
-            <p *ngIf="form.get('horaExame')?.invalid && form.get('horaExame')?.touched" class="alert-danger">Campo obrigatório</p>
+            <input type="time" class="form-control" id="form-hora-exame" formControlName="hora" [(ngModel)]="hora">
+            <p *ngIf="form.get('hora')?.invalid && form.get('hora')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-5">
             <label for="form-tipo-exame" class="form-label">Tipo do Exame</label>
-            <input type="text" class="form-control" id="form-tipo-exame" formControlName="tipoExame">
-            <p *ngIf="form.get('tipoExame')?.invalid && form.get('tipoExame')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
+            <input type="text" class="form-control" id="form-tipo-exame" formControlName="tipo">
+            <p *ngIf="form.get('tipo')?.invalid && form.get('tipo')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
         </div>
         <div class="col-5">
             <label for="form-laboratorio" class="form-label">Laboratório</label>
-            <input type="text" class="form-control" id="form-laboratorio" formControlName="laboratorio">
-            <p *ngIf="form.get('laboratorio')?.invalid && form.get('laboratorio')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
+            <input type="text" class="form-control" id="form-laboratorio" formControlName="laboratório">
+            <p *ngIf="form.get('laboratório')?.invalid && form.get('laboratório')?.touched" class="alert-danger">Necessários 4 a 32 caracteres</p>
         </div>
         <div class="col-12">
             <label for="form-url" class="form-label">URL do Documento do Exame</label>
-            <input type="url" class="form-control" id="form-precaucoes" formControlName="url">
+            <input type="url" class="form-control" id="form-precaucoes" formControlName="URL">
         </div>
         
         <div class="col-12">

@@ -1,14 +1,14 @@
 <section class="d-flex flex-column p-3 text-center gap-5">
     <h2>Encontre o paciente</h2>
-    <div class="d-flex gap-3">
+    <div class="d-flex gap-3 shadow p-2">
         <input type="text" class="form-control" placeholder="Digite a ID ou o nome do paciente" #inputPaciente>
         <button type="button" class="btn btn-outline-primary" (click)="selecionarPaciente()">🔍</button>
     </div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
         <div class="d-flex justify-content-between col-12">
             <div class="btn-group gap-2">
-                <button class="btn btn-primary">EDITAR</button>
-                <button class="btn btn-secondary">DELETAR</button>
+                <button class="btn btn-primary" disabled>EDITAR</button>
+                <button class="btn btn-secondary" disabled>DELETAR</button>
                 <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
             <h3 *ngIf="encontrado">Consulta de {{pacienteSelecionado['dados']['nome']}}</h3>
@@ -21,18 +21,18 @@
         </div>
         <div class="col-2">
             <label for="form-data-consulta" class="form-label">Data da Consulta</label>
-            <input type="date" class="form-control" id="form-data-consulta" formControlName="dataConsulta" [(ngModel)]="data">
-            <p *ngIf="form.get('dataConsulta')?.invalid && form.get('dataConsulta')?.touched" class="alert-danger">Campo obrigatório</p>
+            <input type="date" class="form-control" id="form-data-consulta" formControlName="data" [(ngModel)]="data">
+            <p *ngIf="form.get('data')?.invalid && form.get('data')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-2">
             <label for="form-hora-consulta" class="form-label">Hora da Consulta</label>
-            <input type="time" class="form-control" id="form-hora-consulta" formControlName="horaConsulta" [(ngModel)]="hora">
-            <p *ngIf="form.get('horaConsulta')?.invalid && form.get('horaConsulta')?.touched" class="alert-danger">Campo obrigatório</p>
+            <input type="time" class="form-control" id="form-hora-consulta" formControlName="hora" [(ngModel)]="hora">
+            <p *ngIf="form.get('hora')?.invalid && form.get('hora')?.touched" class="alert-danger">Campo obrigatório</p>
         </div>
         <div class="col-12">
             <label for="form-descricao" class="form-label">Descrição do Problema</label>
-            <textarea type="text" class="form-control" id="form-descricao" formControlName="descricao"></textarea>
-            <p *ngIf="form.get('descricao')?.invalid && form.get('descricao')?.touched" class="alert-danger">Necessários 16 a 1024 caracteres</p>
+            <textarea type="text" class="form-control" id="form-descricao" formControlName="descrição"></textarea>
+            <p *ngIf="form.get('descrição')?.invalid && form.get('descrição')?.touched" class="alert-danger">Necessários 16 a 1024 caracteres</p>
         </div>
         <div class="col-12">
             <label for="form-receita" class="form-label">Medicação Receitada</label>
@@ -40,8 +40,8 @@
         </div>
         <div class="col-12">
             <label for="form-precaucoes" class="form-label">Dosagem e Precauções</label>
-            <textarea type="text" class="form-control" id="form-precaucoes" formControlName="precaucoes"></textarea>
-            <p *ngIf="form.get('precaucoes')?.invalid && form.get('precaucoes')?.touched" class="alert-danger">Necessários 16 a 256 caracteres</p>
+            <textarea type="text" class="form-control" id="form-precaucoes" formControlName="precauções"></textarea>
+            <p *ngIf="form.get('precauções')?.invalid && form.get('precauções')?.touched" class="alert-danger">Necessários 16 a 256 caracteres</p>
         </div>
     </form>
 </section>

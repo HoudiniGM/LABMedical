@@ -21,11 +21,11 @@ export class QueryRegistrationComponent {
   constructor(private localStorage: LocalstorageService, private date: DatePipe){
     this.form = new FormGroup({
       motivo: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
-      dataConsulta: new FormControl('', Validators.required),
-      horaConsulta: new FormControl('', Validators.required),
-      descricao: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(1024)]),
+      data: new FormControl('', Validators.required),
+      hora: new FormControl('', Validators.required),
+      descrição: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(1024)]),
       receita: new FormControl(''),
-      precaucoes: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(256)])
+      precauções: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(256)])
     })
 
     this.data = this.date.transform(this.today, 'yyyy-MM-dd');

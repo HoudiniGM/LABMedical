@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { DatePipe } from '@angular/common';
+import { DatePipe, KeyValuePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './pages/login-screen/login-screen.component';
@@ -21,6 +21,7 @@ import { ExamRegistrationComponent } from './components/exam-registration/exam-r
 import { MedicalRecordListComponent } from './components/medical-record-list/medical-record-list.component';
 import { FilterForStatisticsPipe } from './pipes/filter-for-statistics.pipe';
 import { FilterForMedicalRecordPipe } from './pipes/filter-for-medical-record.pipe';
+import { PacientDataComponent } from './components/pacient-data/pacient-data.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FilterForMedicalRecordPipe } from './pipes/filter-for-medical-record.pi
     ExamRegistrationComponent,
     MedicalRecordListComponent,
     FilterForStatisticsPipe,
-    FilterForMedicalRecordPipe
+    FilterForMedicalRecordPipe,
+    PacientDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ import { FilterForMedicalRecordPipe } from './pipes/filter-for-medical-record.pi
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, KeyValuePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

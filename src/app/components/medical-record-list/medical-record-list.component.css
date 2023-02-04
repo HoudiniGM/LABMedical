@@ -1,0 +1,6 @@
+tbody tr:hover {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    scale: 1.05;
+    cursor: pointer;
+    background: #b9b9b9;
+}

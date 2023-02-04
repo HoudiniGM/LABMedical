@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { PacienteSelecionadoService } from 'src/app/services/paciente-selecionado.service';
 
 @Component({
   selector: 'app-medical-record-list',
@@ -11,8 +12,12 @@ export class MedicalRecordListComponent {
   clientes: any[] = [];
   search: string = '';
 
-  constructor(private localStorage: LocalstorageService){
+  constructor(private localStorage: LocalstorageService, private paciente: PacienteSelecionadoService){
     this.email = localStorage.get('usuario').email;
     this.clientes = localStorage.get(this.email).clientes;
+  }
+
+  selecionar(paciente: any){
+    this.paciente.selecionarPaciente(paciente);
   }
 }

@@ -21,11 +21,11 @@ export class ExamRegistrationComponent {
   constructor(private localStorage: LocalstorageService, private date: DatePipe){
     this.form = new FormGroup({
       exame: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
-      dataExame: new FormControl('', Validators.required),
-      horaExame: new FormControl('', Validators.required),
-      tipoExame: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(32)]),
-      laboratorio: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(32)]),
-      url: new FormControl(''),
+      data: new FormControl('', Validators.required),
+      hora: new FormControl('', Validators.required),
+      tipo: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(32)]),
+      laboratório: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(32)]),
+      URL: new FormControl(''),
       resultado: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(1024)]),
     })
 
