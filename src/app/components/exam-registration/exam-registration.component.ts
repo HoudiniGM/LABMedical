@@ -40,7 +40,7 @@ export class ExamRegistrationComponent {
 
 
     usuario.clientes.forEach((cadastro: {[key:string]:any}) => {
-      if (this.paciente.nativeElement.value == cadastro['dados']['nome'] || this.paciente.nativeElement.value == cadastro['dados']['id']){
+      if (this.paciente.nativeElement.value.toLowerCase() == cadastro['dados']['nome'].toLowerCase() || this.paciente.nativeElement.value.toLowerCase() == cadastro['dados']['id'].toLowerCase()){
         //Se o input coincidir com o nome ou id de algum cadastro...
         this.localStorage.set('paciente', cadastro);
         //Esse paciente correspondente é salvo na chave 'paciente' para análise de dados...
@@ -69,6 +69,7 @@ export class ExamRegistrationComponent {
       })
       this.localStorage.set(email, usuario); // Por fim, substituo os dados do localstorage pelos novos.
       form.reset();
+      alert('Registro criado!')
     }
   }
 }

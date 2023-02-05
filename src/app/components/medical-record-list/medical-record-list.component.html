@@ -17,7 +17,7 @@
             <tr class="tr" *ngFor="let cliente of clientes | filterForMedicalRecord:search" data-bs-toggle="modal" data-bs-target="#modal-dados" (click)="selecionar(cliente)">
                 <td class="td">{{cliente['dados']['id']}}</td>
                 <td class="td">{{cliente['dados']['nome']}}</td>
-                <td class="td">{{cliente['dados']['convenio'] !== '' ? cliente['dados']['convenio'] : 'Sem convênio'}}</td>
+                <td class="td">{{cliente['dados']['convênio'] !== '' ? cliente['dados']['convênio'] : 'Sem convênio'}}</td>
             </tr>
         </tbody>
     </table>

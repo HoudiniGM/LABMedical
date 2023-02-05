@@ -20,3 +20,9 @@ h2 {
     color: #842029;
     background-color: #f8d7da;
 }
+
+.gradient {
+    background-image: linear-gradient(to right, #ffa836, #ff5656, rgb(131, 63, 255));
+    border-radius: 15px;
+    padding: 3px;
+}

@@ -2,10 +2,10 @@
     <h2>Preencha os campos para cadastrar</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <div class="d-flex flex-wrap gap-3 justify-content-between shadow p-2">
-            <div class="d-flex justify-content-between col-12">
+            <div class="d-flex justify-content-between col-12 flex-wrap">
                 <div class="btn-group gap-2">
-                    <button class="btn btn-primary">EDITAR</button>
-                    <button class="btn btn-secondary">DELETAR</button>
+                    <button class="btn btn-primary" disabled>EDITAR</button>
+                    <button class="btn btn-secondary" disabled>DELETAR</button>
                     <button type="submit" class="btn btn-success">SALVAR</button>
                 </div>
                 <h3>IDENTIFICAÇÃO</h3>
@@ -33,12 +33,12 @@
             </div>
             <div  class="col-3">
                 <label for="form-cpf" class="form-label">CPF</label>
-                <input type="number" class="form-control" maxlength="11" minlength="11" id="form-cpf" formControlName="CPF">
+                <input type="text" class="form-control" id="form-cpf" formControlName="CPF" pattern="[0-9]*">
                 <p *ngIf="form.get('CPF')?.invalid && form.get('CPF')?.touched" class="alert-danger">Necessário 11 dígitos</p>
             </div>
             <div class="col-3">
                 <label for="form-rg" class="form-label">RG</label>
-                <input type="number" class="form-control" id="form-rg" formControlName="RG">
+                <input type="text" class="form-control" id="form-rg" formControlName="RG" pattern="[0-9]*">
                 <p *ngIf="form.get('RG')?.invalid && form.get('RG')?.touched" class="alert-danger">Campo obrigatório! Máximo 20 dígitos</p>
             </div>
             <div class="col-3">

@@ -3,7 +3,7 @@
         <h2>Estatísticas do Sistema</h2>
         <div class="d-flex justify-content-around">
             <div class="border p-3 col-3">
-                <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
                     <img src="assets/people.svg" alt="pacientes" height="70">
                     <p class="m-auto display-3 h3 fw-bolder">{{clientes.length}}</p>
                 </div>
@@ -11,7 +11,7 @@
                 <p class="text-center">PACIENTES</p>
             </div>
             <div class="border p-3 col-3">
-                <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
                     <img src="assets/calendar.svg" alt="consultas" height="70">
                     <p class="m-auto display-3 h3 fw-bolder">{{consultas}}</p>
                 </div>
@@ -19,7 +19,7 @@
                 <p class="text-center">CONSULTAS</p>
             </div>
             <div class="border p-3 col-3">
-                <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
                     <img src="assets/exams.svg" alt="exames" height="70">
                     <p class="m-auto display-3 h3 fw-bolder">{{exames}}</p>
                 </div>
@@ -40,11 +40,11 @@
         <ul class="d-flex flex-wrap gap-3 justify-content-center">
             <li class="card" *ngFor="let cliente of clientes | filterForStatistics:search">
                 <img src="assets/profile-icon-default.svg" alt="profile-photo" height="70">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-around">
                     <h4>{{cliente['dados']['nome']}}</h4>
-                    <small>{{cliente['dados']['idade']}}</small>
                     <a href="#">{{cliente['dados']['email']}}</a>
-                    <h6>{{cliente['dados']['convenio']}}</h6>
+                    <h6>{{cliente['dados']['convênio']}}</h6>
+                    <h6>ID: {{cliente['dados']['id']}}</h6>
                 </div>
                 <div class="card-footer">
                     <small>Ver mais &#10010;</small>

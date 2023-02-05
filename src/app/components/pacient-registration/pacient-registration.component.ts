@@ -63,6 +63,7 @@ export class PacientRegistrationComponent {
       this.localStorage.set(email, usuario)   // substituo os dados antigos pelos novos
 
       form.reset();
+      alert('Registro criado!')
     }
   }
 
