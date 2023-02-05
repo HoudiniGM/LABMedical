@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pacient-registration',
@@ -10,8 +11,16 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 export class PacientRegistrationComponent {
   form: FormGroup;
   today: Date = new Date();
+  endereco: any = {
+    localidade: '',
+    uf: '',
+    complemento: '',
+    bairro: '',
+    numero: '',
+    logradouro: ''
+  }
 
-  constructor(private localStorage: LocalstorageService){
+  constructor(private localStorage: LocalstorageService, private http: HttpClient){
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
       gênero: new FormControl('', Validators.required),
@@ -54,6 +63,15 @@ export class PacientRegistrationComponent {
       this.localStorage.set(email, usuario)   // substituo os dados antigos pelos novos
 
       form.reset();
+    }
+  }
+
+  buscarCEP(cep: any){
+    cep.value = cep.value.replace(/\D/g, '');
+    if (cep.value.length === 8){
+      this.http.get(`https://viacep.com.br/ws/${cep.value}/json/`).subscribe( data => {
+        this.endereco = data
+      })
     }
   }
 }

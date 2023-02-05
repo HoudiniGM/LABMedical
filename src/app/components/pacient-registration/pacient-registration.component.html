@@ -118,42 +118,42 @@
 
             <div class="col-3">
                 <label for="form-cep" class="form-label">CEP</label>
-                <input type="number" class="form-control" id="form-cep" formControlName="CEP">
+                <input type="number" class="form-control" id="form-cep" formControlName="CEP" (ngModelChange)="buscarCEP(cep)" #cep inputmode="numeric">
                 <p *ngIf="form.get('CEP')?.invalid && form.get('CEP')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-cidade" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="form-cidade" formControlName="cidade">
+                <input type="text" class="form-control" id="form-cidade" formControlName="cidade" [(ngModel)]="endereco.localidade">
                 <p *ngIf="form.get('cidade')?.invalid && form.get('cidade')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-estado" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="form-estado" formControlName="estado">
+                <input type="text" class="form-control" id="form-estado" formControlName="estado" [(ngModel)]="endereco.uf">
                 <p *ngIf="form.get('estado')?.invalid && form.get('estado')?.touched" class="alert-danger">Campo obrigatório. Apenas 2 caracteres</p>
             </div>
 
             <div class="col-6">
                 <label for="form-logradouro" class="form-label">Logradouro</label>
-                <input type="text" class="form-control" id="form-logradouro" formControlName="logradouro">
+                <input type="text" class="form-control" id="form-logradouro" formControlName="logradouro" [(ngModel)]="endereco.logradouro">
                 <p *ngIf="form.get('logradouro')?.invalid && form.get('logradouro')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-numero" class="form-label">Número</label>
-                <input type="number" class="form-control" id="form-numero" formControlName="número">
+                <input type="number" class="form-control" id="form-numero" formControlName="número" [(ngModel)]="endereco.numero">
                 <p *ngIf="form.get('número')?.invalid && form.get('número')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 
             <div class="col-3">
                 <label for="form-complemento" class="form-label">Complemento</label>
-                <input type="text" class="form-control" id="form-complemento" formControlName="complemento">
+                <input type="text" class="form-control" id="form-complemento" formControlName="complemento" [(ngModel)]="endereco.complemento">
             </div>
 
             <div class="col-3">
                 <label for="form-bairro" class="form-label">Bairro</label>
-                <input type="text" class="form-control" id="form-bairro" formControlName="bairro">
+                <input type="text" class="form-control" id="form-bairro" formControlName="bairro" [(ngModel)]="endereco.bairro">
                 <p *ngIf="form.get('bairro')?.invalid && form.get('bairro')?.touched" class="alert-danger">Campo obrigatório!</p>
             </div>
 

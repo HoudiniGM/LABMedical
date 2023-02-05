@@ -7,13 +7,16 @@ import { QueryRegistrationComponent } from './components/query-registration/quer
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ApplicationScreenComponent } from './pages/application-screen/application-screen.component';
 import { LoginScreenComponent } from './pages/login-screen/login-screen.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { LoginGuardService } from './services/login-guard.service';
 
 const routes: Routes = [
-  {path: 'login', component: LoginScreenComponent},
+  {path: 'login', component: LoginScreenComponent, canActivate: [LoginGuardService]},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'application',
     component: ApplicationScreenComponent,
+    canActivate: [AuthGuardService],
     children:[
       {path: 'statistics', component: StatisticsComponent, title: 'Estatísticas'},
       {path: 'pacient-registration', component: PacientRegistrationComponent, title: 'Registro de Paciente'},
